@@ -14,7 +14,8 @@
             <br />
           </div>
           <div class="col-sm-4">
-              <img [src]="customer.photoUrl"/> <br />
+              <img *ngIf="showPhoto" [src]="customer.photoUrl"/> <br />
+              <label><input type="checkbox" [(ngModel)]="showPhoto"> Pokaż avatar</label>
           </div>
       </div>
     </div>

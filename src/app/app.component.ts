@@ -18,6 +18,7 @@ export class AppComponent {
 
   isActive = false;
   textDecoration = 'none';
+  showPhoto = false;
 
   textUnderline() {
     this.textDecoration = this.textDecoration === 'none' ? 'underline' : 'none';
