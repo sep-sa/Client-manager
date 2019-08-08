@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Customer } from './model';
+import { Customer, CustomerType } from './model';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +11,16 @@ export class AppComponent {
   customer: Customer = {
     name: 'Jan Kowalski',
     photoUrl: 'assets/images/avatar.png',
-    description: 'some customer',
+    description: 'Some customer',
     age: 35,
-    address: { houseNumber: 17, street: 'Modrzewiowa', city: 'Jeleśnia' }
+    address: { houseNumber: 17, street: 'Modrzewiowa', city: 'Jeleśnia' },
+    type: CustomerType.Premium
   };
 
   isActive = false;
   textDecoration = 'none';
   showPhoto = false;
+  CustomerType = CustomerType;
 
   textUnderline() {
     this.textDecoration = this.textDecoration === 'none' ? 'underline' : 'none';
