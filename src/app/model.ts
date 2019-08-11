@@ -5,6 +5,7 @@ export interface Customer {
   age: number;
   address: Address;
   type: CustomerType;
+  categories: string[];
 }
 
 export interface Address {
@@ -17,5 +18,4 @@ export enum CustomerType {
   Standard,
   Premium,
   VIP,
-  kdkd
 }

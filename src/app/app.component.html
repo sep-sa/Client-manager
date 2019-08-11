@@ -1,5 +1,13 @@
 <div class="container w-90">
   <div class="card">
+    <div class="card-body">
+      <select [(ngModel)]="customer">
+        <option *ngFor="let c of customers" [ngValue]="c">{{c.name}}</option>
+      </select>
+    </div>
+  </div>
+<br/>
+  <div class="card">
      <div class="card-header">
         <h1 [class.activeClass]="isActive" [style.text-decoration]="textDecoration">
           {{ customer.name | uppercase }}
@@ -17,12 +25,16 @@
             <p>{{customer.description}}</p>
             <p>Wiek: {{customer.age}}</p>
             <p>Adres: {{customer.address.street+" "+customer.address.houseNumber}}, {{customer.address.city}}</p>
+            <ul>
+              <li *ngFor="let category of customer.categories">{{category}}</li>
+            </ul>
             <button type="button" class="btn btn-primary" (click)="isActive = !isActive">Zmień kolor tekstu</button>
             <button type="button" class="btn btn-primary" (click)="textUnderline()">Zmień podkreślenie</button>
             <br />
           </div>
           <div class="col-sm-4" id= "avatar">
-              <img *ngIf="showPhoto" [src]="customer.photoUrl" height="164px"/> <br />
+              <img *ngIf="showPhoto; else noPhoto" [src]="customer.photoUrl" height="140px"/> <br />
+              <ng-template #noPhoto><p>Zdjecie ukryte !</p></ng-template>
               <label><input type="checkbox" [(ngModel)]="showPhoto"> Pokaż avatar</label>
           </div>
       </div>
